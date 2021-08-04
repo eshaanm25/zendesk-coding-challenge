@@ -2,6 +2,11 @@
 
 
 The following project was created as a challenge for Zendesk's Co-op program. The application is able to use the Zendesk API to list and view Zendesk tickets. The project utilizes a front-end written in Javascript, HTML, and CSS as well as a back-end written in NodeJS.
+
+# Quick Look
+
+Fow a quick look at the application, here is a webserver hosted on AWS at [zendesk.eshaanm.com](http://zendesk.eshaanm.com)
+
 # Installation Instructions
 
 1. Make sure [Node.js](https://nodejs.org/en/) is installed
