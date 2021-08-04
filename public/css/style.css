@@ -1,0 +1,16 @@
+body {
+    font-family: Arial, Helvetica, sans-serif
+}
+
+th{ 
+    color: #fff;
+    background-color: #03363D;
+}
+
+#ticketwelcome{
+    text-align: center;
+}
+
+#ticketheadersubject, #ticketheaderdescription, #ticketheaderstatus, #ticketheadercreationtime, #ticketheaderupdatetime{
+    display:none;
+}

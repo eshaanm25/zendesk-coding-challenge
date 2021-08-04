@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./resources/favicon.ico">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <title>Zendesk Coding Challenge</title>
+</head>
+<body>
+  <!--Table to space content out-->
+  <table style="width:100%">
+    <tr>
+      <th style="width: 59%;"><h3>All Tickets</h3></th>
+      <!--Spacer-->
+      <th style="width: 1%;"></th>
+      <th style="width: 40%;"><h3>Ticket Viewer</h3></th>
+    </tr>
+    <tr>
+      <td>
+        <!--Paginated Tickets Table-->
+        <table class="table table-tickets table-striped">
+          <tr  class="bg-info">
+            <th style="height: 20px;">ID</th>
+            <th style="height: 20px;">Status</th>
+            <th style="height: 20px;">Subject</th>
+            <th style="height: 20px;">Last Updated (GMT)</th>
+          </tr>
+          <tbody id="ticketsTable"></tbody>
+        </table>
+        <!--Previous Page button-->
+        <button id="previous">Previous</button>
+        <!--Next Page button-->
+        <button id="next">Next</button>
+        <!--Table loading status information-->
+        <p style="text-align: center;" id="status"></p>
+      </td>
+      <!--Spacer Column-->
+      <td></td>
+      <td>
+        <!--Ticket instructions and loading status-->
+        <h4 id=ticketwelcome>Welcome, please click on a ticket ID to see its details!</h4>
+        <!--Ticket headers and data-->
+        <h4 id="ticketheadersubject">Subject:</h4>
+        <p id="ticketsubject"></p>
+        <h4 id="ticketheaderdescription">Description:</h4>
+        <p id="ticketdescription"></p>
+        <h4 id="ticketheaderstatus">Status:</h4>
+        <p id="ticketstatus"></p>
+        <h4 id="ticketheadercreationtime">Creation Time (GMT):</h4>
+        <p id="ticketcreationtime"></p>
+        <h4 id="ticketheaderupdatetime">Last Updated (GMT):</h4>
+        <p id="ticketupdatetime"></p>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
+
+<script type="module" src="/js/ticketDetails.js"></script>
+<script type="module" src="/js/ticketTable.js"></script>

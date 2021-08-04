@@ -1,0 +1,29 @@
+{
+  "name": "zendesk-coding-challenge",
+  "version": "1.0.0",
+  "description": "This is a coding challenge  for the 2021 Zendesk Co-Op",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eshaanm25/zendesk-coding-challenge.git"
+  },
+  "author": "Eshaan Mathur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eshaanm25/zendesk-coding-challenge/issues"
+  },
+  "homepage": "https://github.com/eshaanm25/zendesk-coding-challenge#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-modules-commonjs": "^7.14.5",
+    "jest": "^27.0.6",
+    "supertest": "^6.1.4"
+  }
+}
