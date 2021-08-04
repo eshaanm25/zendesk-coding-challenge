@@ -4,9 +4,9 @@
 
 const fs = require('fs');
 const path = require('path');
-const html = fs.readFileSync(path.resolve(__dirname, '../index.html'), 'utf8');
-const ticketTableJSON = fs.readFileSync(path.resolve(__dirname, '../resources/testing/sampleTicketTable.json'), 'utf-8');
-import { checkPages, populateInfoTable } from "./ticketTable";
+const html = fs.readFileSync(path.resolve(__dirname, '../public/index.html'), 'utf8');
+const ticketTableJSON = fs.readFileSync(path.resolve(__dirname, '../public/resources/testing/sampleTicketTable.json'), 'utf-8');
+import { checkPages, populateInfoTable } from "../public/js/ticketTable";
 
 test('Check if pagination buttons work correctly', () => { 
     document.body.innerHTML = html;
@@ -21,10 +21,13 @@ test('checkPages grays out both buttons if invalid input is recieved', () => {
 
 test('Check if table populates correctly', () => { 
     document.body.innerHTML = html;
-    const expected = fs.readFileSync(path.resolve(__dirname, '../resources/testing/tablePopulate.html'), 'utf8');
-    const jsonobject = JSON.parse(ticketTableJSON); //Sample JSON of Page 1, Next button is active and Previous nutton is inactive
-    expect (populateInfoTable(jsonobject.tickets)).toEqual(expected);
+    const jsonobject = JSON.parse(ticketTableJSON); 
+    expect (populateInfoTable(jsonobject.tickets)).toEqual('success');
 })
+
+
+
+
 
 
 

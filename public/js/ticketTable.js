@@ -112,11 +112,12 @@ function checkPages(pageData) {
             ticketInfo(this.id);
     }
 };
-return(table.innerHTML);
+return('success');
 }
 
+var text, json, pageNumber; //Initialize global variables
+
 window.onload = function(){
-    var text, json, pageNumber; //Initialize global variables
     document.getElementById ("previous").addEventListener("click", previousPage, false);
     document.getElementById ("next").addEventListener ("click", nextPage, false);
     pageNumber = 1;

@@ -8,12 +8,8 @@ const fetch = require('node-fetch');
  * Opens port 3000 and hosts ./public folder
  */
 const app = express();
-const port = process.env.PORT || 3000;
 app.use(express.static('public'));
 app.use(express.json({ limit: '1mb' }));
-app.listen(port, () => {
-  console.log(`Starting server at ${port}`);
-});
 
 
 /**
@@ -46,12 +42,12 @@ app.get('/page/:pagenumber', async(request, response) => {
             console.log('Success!\n');
             response.json(ticketListData);
         } else {
-            console.log('Error retrieving data. Error Code Listed Below');
+            console.log('Error retrieving data. Error Code Listed On Webpage');
             response.send(HTTPError(userResponse));
         }
     }
     catch (error){
-        console.log('Node Error. Error Code Listed Below');
+        console.log('Node Error');
         response.send(nodeCatchError(error));
     }
 })
@@ -75,13 +71,12 @@ app.get('/ticket/:ticketId', async(request, response) => {
             console.log('Success!\n');
             response.json(ticketInfo);
         } else {
-            console.log('Error retrieving data. Error Code Listed Below');
+            console.log('Error retrieving data. Error Code Listed on Webpage');
             response.send(HTTPError(userResponse));
         }
     }
     catch (error){
-        console.log('Node Error. Error Code Listed Below');
-        response.send(nodeCatchError(error));
+        console.log(error);
     }
 })
 
@@ -94,39 +89,17 @@ app.get('/ticket/:ticketId', async(request, response) => {
 function HTTPError(userResponse){
     switch(userResponse.status){
         case 404:
-            console.log('ERROR 404: The server can not find the requested resource. Please check if Zendesk Subdomain is valid.')
-            throw 'ERROR 404: The server can not find the requested resource. Please check if Zendesk Subdomain is valid.';
+            return 'ERROR 404: The server can not find the requested resource. Please check if Zendesk Subdomain is valid.';
         case 400:
-            console.log('ERROR 400: The server could not understand the request due to invalid syntax. Please check if ticket number is valid.')
-            throw 'ERROR 400: The server could not understand the request due to invalid syntax. Please check if ticket number is valid.';
+            return 'ERROR 400: The server could not understand the request due to invalid syntax. Please check if ticket number or page number is valid.';
         case 403:
-            console.log('ERROR 403: The client does not have access rights to the content. Please check if OAUTH token is valid.')
-            throw 'ERROR 403: The client does not have access rights to the content. Please check if OAUTH token is valid.';
+            return 'ERROR 403: The client does not have access rights to the content. Please check if OAUTH token is valid.';
         case 401:
-            console.log('ERROR 401: The client does not have access rights to the content. Please check if OAUTH token is valid.')
-            throw 'ERROR 401: The client does not have access rights to the content. Please check if OAUTH token is valid.';
+            return 'ERROR 401: The client does not have access rights to the content. Please check if OAUTH token is valid.';
         default:
             console.log(userResponse.status+' '+userResponse.statusText)
-            throw userResponse.status+' '+userResponse.statusText;
+            return userResponse.status+' '+userResponse.statusText;
     }
 }   
 
-
-/**
- * Function that adds troubleshooting information to Node error created by the Ticket Listing or Ticket Information function
- * 
- * @param {Object} userResponse specified the error information returned by the Ticket Listing or Ticket Information function
- * @returns {String} Returns Node error code and troubleshooting tips
- */
-function nodeCatchError(error){
-    if (error.code=='ENOTFOUND'){
-        console.log('ERROR ENOUTFOUND: Node Server was unable to establish a connection.')
-        return 'ERROR ENOUTFOUND: Node Server was unable to establish a connection.';
-    }
-    else {
-        console.log(error.code)
-        return error.code;
-    }
-}
-
-module.exports = { app };
+module.exports = app;

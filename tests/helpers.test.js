@@ -1,4 +1,4 @@
-import { dateConverter, statusConverter } from "./helpers";
+import { dateConverter, statusConverter } from "../public/js/helpers";
 
 test('Properly converts date in Zulu time to date in GMT', () => {
     const zulu = '2021-07-29T04:28:17Z';
