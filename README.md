@@ -1,7 +1,8 @@
 # Zendesk 2021 Coding Challenge 
 
-
 The following project was created as a challenge for Zendesk's Co-op program. The application is able to use the Zendesk API to list and view Zendesk tickets. The project utilizes a front-end written in Javascript, HTML, and CSS as well as a back-end written in NodeJS.
+
+**Internship offer extended** 😄
 
 # Quick Look
 
@@ -18,7 +19,7 @@ Fow a quick look at the application, here is a webserver hosted on AWS at [zende
 |       Variable         |Description                          |Example                         |
 |----------------|-------------------------------|-----------------------------|
 |SUBDOMAIN|The subdomain of the Zendesk account being accessed            |zcceshaanm           |
-|OATH          | OAUTH token used to authenticate with Zendesk API            |Provided in submission details            
+|OAUTH          | OAUTH token used to authenticate with Zendesk API            |Provided in submission details            
 
 
 5. Run the following code to install the necessary npm packages
